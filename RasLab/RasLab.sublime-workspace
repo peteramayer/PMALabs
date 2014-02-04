@@ -1,0 +1,1281 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"console.log(message);"
+			],
+			[
+				"inspe",
+				"util.inspect(obj, showHidden, depth, colors);"
+			],
+			[
+				"console",
+				"console.info(message);"
+			],
+			[
+				"event",
+				"event49"
+			],
+			[
+				"top",
+				"tophash"
+			],
+			[
+				"_pr",
+				"_prism_pagename"
+			],
+			[
+				"page",
+				"pageNavIndex"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"TA",
+				"TABS_SHOWTAB"
+			],
+			[
+				"hash",
+				"hash"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"stop",
+				"stopImmediatePropagation"
+			],
+			[
+				"has",
+				"hasOwnProperty"
+			],
+			[
+				"get",
+				"getTopQueryParam"
+			],
+			[
+				"ini",
+				"INIT_ONE_TAB_LOAD"
+			],
+			[
+				"_g",
+				"_change_timeout"
+			],
+			[
+				"math",
+				"match"
+			],
+			[
+				"_",
+				"_prism_query"
+			],
+			[
+				"path",
+				"pathname"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"par",
+				"parent"
+			],
+			[
+				"cover",
+				"cover-two"
+			],
+			[
+				"v",
+				"video"
+			],
+			[
+				"play",
+				"playing"
+			],
+			[
+				"set",
+				"setTimeout"
+			],
+			[
+				"clos",
+				"closeFlag"
+			],
+			[
+				"sli",
+				"slideUpNavTL"
+			],
+			[
+				"to",
+				"to"
+			],
+			[
+				"rgb",
+				"rgba"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"touch",
+				"touchstart"
+			],
+			[
+				"ti",
+				"timelinePos"
+			],
+			[
+				"cu",
+				"current_pane"
+			],
+			[
+				"pane",
+				"pane_count"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"tl",
+				"tlObj"
+			],
+			[
+				"s",
+				"panesSel"
+			],
+			[
+				"_tim",
+				"_TimelineGroup"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"Tim",
+				"TimelineGroup"
+			],
+			[
+				"Time",
+				"TimelineMax"
+			],
+			[
+				"ba",
+				"background-image"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"f",
+				"feed"
+			],
+			[
+				"ht",
+				"htmlentities"
+			],
+			[
+				"header",
+				"headerCTA"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"pri",
+				"prismheader"
+			],
+			[
+				"ma",
+				"MarketTarget"
+			],
+			[
+				"group",
+				"groupindex"
+			],
+			[
+				"_mar",
+				"_marketTargetArray"
+			],
+			[
+				"inje",
+				"injectAtPosition"
+			],
+			[
+				"border",
+				"border-box"
+			],
+			[
+				"bor",
+				"border-left"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"na",
+				"navEleClass"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"g",
+				"gscycle"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"T",
+				"TLout"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"pr",
+				"prismtv"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"cre",
+				"createNavEle"
+			],
+			[
+				"an",
+				"animateBASE"
+			],
+			[
+				"tim",
+				"timelinePos"
+			],
+			[
+				"time",
+				"TimelineTweener"
+			],
+			[
+				"is",
+				"isSuccess"
+			],
+			[
+				"ftp",
+				"ftp_localfile"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"gs",
+				"gsslide"
+			],
+			[
+				"slid",
+				"slide4"
+			],
+			[
+				"slide",
+				"slide2"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"se",
+				"secCalc"
+			],
+			[
+				"str",
+				"store_gmt_offset"
+			],
+			[
+				"border-",
+				"border-width"
+			],
+			[
+				"r",
+				"rgb"
+			],
+			[
+				"bar",
+				"background-position"
+			],
+			[
+				"prism",
+				"prismLogo"
+			],
+			[
+				"trans",
+				"translate3d"
+			],
+			[
+				"tran",
+				"translate3d"
+			],
+			[
+				"head",
+				"headCopy"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"market",
+				"marketTarget"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"stagin",
+				"staging_apikey"
+			],
+			[
+				"api",
+				"apiquery"
+			],
+			[
+				"c",
+				"center"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"pat",
+				"path_mp4"
+			],
+			[
+				"dat",
+				"dataTables_scrollBody"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"plan",
+				"plancol"
+			],
+			[
+				"_t",
+				"_tabselect"
+			],
+			[
+				"tab",
+				"tabarraylist"
+			],
+			[
+				"wd",
+				"width"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"chan",
+				"channelLineup"
+			],
+			[
+				"fla",
+				"flagkey"
+			],
+			[
+				"Pa",
+				"PackageInfoMap"
+			],
+			[
+				"ha",
+				"hash"
+			],
+			[
+				"Pack",
+				"PackageInfoMap"
+			],
+			[
+				"mk",
+				"mkt_n"
+			],
+			[
+				"plans",
+				"plansAndPricesBox"
+			],
+			[
+				"su",
+				"sucess"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"ch",
+				"channelObj"
+			],
+			[
+				"ta",
+				"tabarraylist"
+			],
+			[
+				"pris",
+				"prismFeaturedOffers"
+			],
+			[
+				"new",
+				"newSelectedVideo"
+			],
+			[
+				"vid",
+				"videoAltTrackID"
+			],
+			[
+				"us",
+				"unsubscribe"
+			],
+			[
+				"sub",
+				"subtabID"
+			],
+			[
+				"de",
+				"default_tweenmap"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"mini",
+				"Minify Javascript"
+			],
+			[
+				"gis",
+				"Gist: Open Gist"
+			],
+			[
+				"gist",
+				"Gist: Open Gist"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"jav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"math",
+				"Emmet: Evaluate Math Expression"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"enco",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"en",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"enc",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"encod",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"end",
+				"StringEncode: Base64 Decode"
+			],
+			[
+				"setcs",
+				"Set Syntax: CSS"
+			],
+			[
+				"setsh",
+				"Set Syntax: HTML"
+			],
+			[
+				"syn",
+				"Set Syntax: CSS"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"line",
+				"Sort Lines"
+			],
+			[
+				"synht",
+				"Set Syntax: HTML"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"upe",
+				"Convert Case: Upper Case"
+			],
+			[
+				"emm",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"pre",
+				"HTMLPrettify"
+			],
+			[
+				"em",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"mi",
+				"Minify Javascript"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"up",
+				"Convert Case: Upper Case"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"mat",
+				"Emmet: Match Pair (inward)"
+			],
+			[
+				"uper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"cond",
+				"Package Control: Disable Package"
+			],
+			[
+				"gi",
+				"Package Control: Install Package"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"PRETT",
+				"HTMLPrettify"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"u",
+				"Convert Case: Upper Case"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"packre",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"PAC",
+				"Package Control: Disable Package"
+			],
+			[
+				"pa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"css",
+				"CSSLint: Run CSSLint"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"min",
+				"Minify Javascript"
+			],
+			[
+				"codein",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"sub",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"UPPER",
+				"Convert Case: Upper Case"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"json",
+				"StringEncode: JSON Escape"
+			],
+			[
+				"jos",
+				"StringEncode: JSON Escape"
+			],
+			[
+				"strin",
+				"StringEncode: HTML Entitize"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 576.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/repository/Dropbox/PMALabs/RasLab/tweetOnButton.node.js",
+		"/C/repository/Dropbox/PMALabs/RasLab/config.js",
+		"/C/repository/Dropbox/PMALabs/RasLab/twitterConfig.js",
+		"/C/repository/Dropbox/PMALabs/RasLab/node_modules/twitter/lib/twitter.js",
+		"/C/repository/Dropbox/PMALabs/RasLab/RasLabTweetOnButton.node.js",
+		"/C/repository/Dropbox/PMALabs/RasLab/node_modules/twitter/index.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismTabbedFeatures.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/main.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismAnalytics.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/videoOverlay.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/videoOverlay.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/customerprofile.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/mainPage.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/index.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/inc-prismFooter.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/inc-prismHeader.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/flashTrack.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-extras-header.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/jquery.pubsub.min.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-prismTabNav.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/assets/optimized/monitorCSSCorp.sh",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/assets/optimized/monitorCSSCorp.env",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/TweenMax.autocycle.js",
+		"/C/Users/BrownKG/Downloads/output-2014-01-16 0929.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/prism-tv-mobile.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-features.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-body.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/prism-tv-mobile.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/markets/markets.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-header.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-disclaimer-footer.html",
+		"/C/repository/Dropbox/dimensions/notes.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-footer.html",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/index.html",
+		"/C/repository/CNTL-GIT/EXPERIMENTS/addys/39C/index.html",
+		"/C/repository/CNTL-GIT/EXPERIMENTS/addys/39A/index.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-whole-home-dvr.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-channel-lineup.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/markets/markets.json",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismHeroBanners.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-extras-footer.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-advanced-features.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/fiberOverlay.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/inc-prismHeroBanner.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-special-lasvegas.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-special-phoenix.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/channelLineupTable.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/cityOverlay.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/display_phone_calls.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/fb.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/inc-plansAndPrices.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/ppc_phone_calls.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-customer-reviews.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-plans-and-prices.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-virtual-test-drive.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prismDisclaimer.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/ptvpVideoOverlay.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/video-sitemap.xml",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/.htaccess",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prism-link-matrix-fragment.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-prismVars.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-sochi.html",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/index.php",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismHeroBanners.css",
+		"/C/Qt/README.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/attentionSnipe.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/validation-links.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismAssetLoader.js",
+		"/C/Users/BrownKG/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-externalAssets.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/reset.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/mobile/inc-mobile-channels.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-footerDisclaimer.html",
+		"/C/repository/Dropbox/dimensions/notes3.txt",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/.htaccess",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/wp-config.php",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/wp-settings.php",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismFeaturedOffers.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/main.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/index.css",
+		"/C/Users/BrownKG/Downloads/bonus-all/HTML5/src/minified/plugins/ThrowPropsPlugin.min.js",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/homepage.php",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/init.php",
+		"/C/Users/BrownKG/AppData/Local/Temp/fz3temp-1/functions.php",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/multiVideoPlayer.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-lowPricePoint.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-bundlePackage.html",
+		"/C/repository/CNTL-GIT/EXPERIMENTS/pagesdump/findindexes.txt",
+		"/C/Users/BrownKG/repository/CNTL-GIT/EXPERIMENTS/pagesdump/findindexes.php.txt",
+		"/C/repository/Dropbox/dimensions/notes2.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/popups/special-deal-phoenix.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/popups/special-deal-lasvegas.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/popups/channellineup-details.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/README.md",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/global-masthead.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/reviews/submission.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismDeeplinkingHandler.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-channelLineup.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/customer-reviews.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/OBSOLETE/prismCompare.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-prismPreferred.html",
+		"/C/repository/downloads/DEVELOPER RELEASE ONLY.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/actiondeferr.min.js",
+		"/C/Users/BrownKG/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/rgpjf2yy.y52.txt",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-lasvegasSpecial.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-phoenixSpecial.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-antiCable.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-300reward.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-wstbHeader.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismChannelLineup.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/ptvpVideoOverlay.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-limitedTimeCard.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-redzone.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/jquery.min.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/__mobile__new/inc-mobile-body.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/__mobile__new/inc-mobile-header.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/__mobile__new/inc-mobile-features.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/__mobile__new/inc-mobile-channels.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/includes/inc-hero-specialDeal.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismChannelLineup.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/js/prismChannelLineupTool.js",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/reviews/inc-head-submission.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/prism-tv-test-drive.html",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismAdvancedFeatures.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prism-customer-reviews.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismTestDrive.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/prismWhySwitch.css",
+		"/C/repository/CNTL-GIT/CNTL-GITHUB/CNTL-www/prismtv/css/wholeHomeDVR.css"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open files>,<open folders>",
+			"<open files>",
+			"<open files>,<open folders>",
+			"<open files>",
+			"",
+			"\n,<open files>,<open folders>",
+			"\n",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"STATE YOUR NAME",
+			".evar",
+			"pubsubdebug",
+			"prism_cust_info",
+			"inArray",
+			"alternateTabnameMap",
+			"initHashChange",
+			"selected",
+			"TABS_ALL_PREPARED",
+			"initHashChange",
+			"TABS_SHOWTAB",
+			"onTabsShowtab",
+			"OMNI_PAGETRACK",
+			"omniTrackPage",
+			"OMNI_PAGETRACK",
+			"$('#prismTestDriveVideoPlayer')",
+			"hashStore",
+			"onTabsShowtab",
+			"panes",
+			"buildCycle",
+			"textbox",
+			"type=\"text/javascript\"",
+			"omniFastTrackAction",
+			"webdmzqa2",
+			"TABS_ALLTABS_LOADED",
+			"TABS_ALL_PREPARED",
+			"MKT_UPDATE_INFO",
+			"TABS_ALLTABS_LOADED",
+			"input",
+			"handleGetProfile",
+			"getProfileFromZip",
+			"console",
+			"./",
+			"./images",
+			"./",
+			"?pid=P_S:CL:41590815&gclid=CLb1trrZ8bsCFW0V7AodB38AnA&mm_campaign=fe2c8cca331f82152619610e81926272&keyword=centurylink+prism+tv+bundle&mkwid=612470033&siclientid=8937&sessguid=22e58fc6-0437-4386-ada8-709219e091db&userguid=22e58fc6-0437-4386-ada8-709219e091db&permguid=22e58fc6-0437-4386-ada8-709219e091db",
+			"http://webdmzqa2.centurylink.com/prismtv/?",
+			"http://prismtv.dontshareit.net/prismtv",
+			"console",
+			"getQueryParam",
+			"exec",
+			",",
+			"marketQueryParam",
+			"testmarket",
+			"marketQueryParam",
+			"mouseMoveHandler",
+			"headCycle",
+			"hidden",
+			"+3",
+			"_query",
+			"&",
+			"\"testmarket\"",
+			"getTopQueryParam",
+			"rotation",
+			"cookie.js",
+			"jquery-ui",
+			"s_code.js",
+			"mbox.js",
+			"mbox",
+			"longslider",
+			"longlis",
+			"#slideup",
+			"closeFlag",
+			"overview_video",
+			"easeNone",
+			"ev.gesture.distance",
+			"PRISM ",
+			"Prism ",
+			"Prism Complete",
+			"videojs",
+			"orangeButton",
+			"handleGetProfile",
+			"#features1",
+			"&quot;",
+			"omniFastTrackAction",
+			"h5",
+			"mobile-di",
+			".advFeat",
+			"mouseup touchend",
+			"handleHammer",
+			".pad",
+			"trackAction",
+			"setPaneDimensions",
+			"TimelineGroup",
+			"_TimelineGroup",
+			"pane_count",
+			"current_pane",
+			"timelinePos",
+			"current_pane",
+			"Timeline",
+			"buildCycle",
+			"url(/",
+			"heroImg",
+			"394e1f",
+			"rgb(24,26,28)",
+			"rgb(36,39,43)",
+			"rgb(20,21,23)",
+			"rgb(29,31,33) 51%,",
+			"#2a2e32 50%,#232629 50%",
+			"#2a2e32 50%, #232629 50%",
+			"#2a2e32 50%,#232629 50%",
+			"  #2a2e32 50%, #232629 50%",
+			"2a2e32",
+			"#slideup",
+			" 1",
+			"next",
+			": transparent url(\"/prismtv/mobile/images/drawer-icons-compressed.png\") no-repeat",
+			"display: block;width: 100%;height: 10px;",
+			"prism",
+			"font-size",
+			"iVBORw0KGgoAAAANSUhEUgAAAhAAAABYCAIAAAAr9ln2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYW",
+			"iVBORw0KGgoAAAANSUhEUgAAAhAAAA",
+			"filter",
+			"promotions",
+			"https",
+			"https://promotions.centurylink.com",
+			"bookend",
+			"disclaimer",
+			"accentBonus",
+			"center",
+			"promo-300-card",
+			" />",
+			"<img",
+			"/web/",
+			"\\/web\\/",
+			"\\s+",
+			"\\s\\s",
+			"\\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/",
+			"/\n",
+			"\n",
+			" ",
+			"http://",
+			"",
+			"\n",
+			" ",
+			"\\n",
+			" ",
+			"",
+			" ",
+			"prism-tv-virtual-test-drive",
+			"mkt_prism_essential",
+			"mkt_prism_preferred",
+			"",
+			"/webdmzqa2.centurylink.com",
+			"/webdmzqa2.centurylink.com/",
+			"href=\"http://webdmzqa2.centurylink.com/",
+			"src=\"http://webdmzqa2.centurylink.com/",
+			"ACTION_RESUME_HEROS",
+			"carousel",
+			"tab-preselected",
+			"OMNI_ACTIONTRACK",
+			"OMNI_PAGETRACK",
+			"prism_globals.",
+			"prism_globals",
+			"espańol",
+			"/prismtv/includes/inc-prismVars.html",
+			"bundle with Prism&trade; TV",
+			"150",
+			" ",
+			"bestDealCol mkt_prism_premium  ",
+			"betterDealCol mkt_prism_complete ",
+			"betterDealCol mkt_prism_complete   ",
+			"goodDealCol mkt_prism_tv  ",
+			" mkt_text_terms_full\">a month for 2 years when you bundle*",
+			"a month for 2 years*",
+			"disclaimer mkt_text_terms_short",
+			"mkt_text_terms_short\">a month for 2 years*",
+			"mkt_text_terms_short\">a month for 24 months*",
+			"textPrice mkt_pricepoint\">",
+			"cents mkt_pricepoint\">\ncents mkt_pricepoint\">\ntextPrice mkt_pricepoint\">",
+			"cents mkt_cents\">",
+			"dollars mkt_dollars\">",
+			" mkt_phone_number",
+			"callNumber phone_number",
+			"${QUERY_STRING}",
+			"1.888.273.5968",
+			"\\/",
+			"y",
+			"x",
+			"",
+			"\n",
+			"x",
+			"",
+			"}\n,{",
+			" #lineupHolder",
+			"/prismtv/markets/columbia.json",
+			"\n{\"channelCallLetter\"",
+			"\\n{\"channelCallLetter\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.csslint_result_view":
+	{
+		"height": 299.0
+	},
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"jnic",
+				"css/jNice.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 252.0,
+	"status_bar_visible": true
+}
