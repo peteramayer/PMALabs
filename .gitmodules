@@ -1,0 +1,3 @@
+[submodule "VagrantNode"]
+	path = VagrantNode
+	url = https://github.com/RavnTM/VagrantNode.git
