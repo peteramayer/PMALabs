@@ -2,3 +2,4 @@
 */config.py
 */config.js
 */npm-debug.log
+*.vagrant
