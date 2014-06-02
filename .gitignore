@@ -1,5 +1,6 @@
 */nohup.out
-*/config.py
-*/config.js
+*config.py
+*config.js
 */npm-debug.log
 *.vagrant
+**savedimages/
