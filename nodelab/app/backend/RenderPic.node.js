@@ -10,7 +10,7 @@ function RenderPic (argument) {
 		pubsub = require('./pubsub.js'),
 		topics = require('./topics.js'),
 
-		settings = { w:960, h:360 },
+		settings = { w:960, h:540 },
 		canvas = new NodeCanvas( settings.w, settings.h );
 
 		signatureConfigs = [

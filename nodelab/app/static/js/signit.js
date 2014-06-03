@@ -9,7 +9,7 @@
 		return;
 	}
 
-	var w = 960, h = 360, inputName;
+	var w = 960, h = 540, inputName;
 
 	var signatureConfigs = [
 		{ imgx: -10, imgy: -200, txtx: 120, txty: 150 }
