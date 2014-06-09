@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>Get Your John Handcock on!</title>
+		<title>#SIGNIT2014</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href='http://fonts.googleapis.com/css?family=Dawning+of+a+New+Day|Ruthie' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Ruthie' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/static/css/style.css">
 		<!--[if lt IE 9]>
@@ -15,33 +15,41 @@
 	    <![endif]-->
     </head>
     <body>
-    	<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    	<header class="navbar navbar-transparent navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="buffer col-xs-12">
-					<div class="navbar-header navbar-left">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#">Get Your John Handcock on!</a>
+					<div class="navbar-header">
+						<a class="main-heading" href="#">#SIGNIT2014</a>
 					</div>
-					<nav class="navbar-right">
-						<a class="btn btn-default" href="#">home</a>
-					</nav>
 				</div>
 			</div>
     	</header>
     	<main class="main container">
 	    	<div class="buffer">
-	    		<input id="yourname" class="input-lg" type="text" value="@yourtwitterhandle">
-	    	</div>
+	    		<div class="input-group input-group-lg">
+                    <span class="input-group-addon">@</span>
+                    <input type="text" class="form-control" id="yourname" name="yourname" value="yourtwitterhandle" maxlength="18">
+    				<a id="mainsignit" href="#share" class="input-group-addon btn btn-default">Share it</a>
+                </div>
+				<div id="output"></div>
+    		</div>
+	    	<div class="buffer">
+    			<a href="#share" class="btn btn-default">Share to Facebook</a>
+    			<a href="#share" class="btn btn-default">Share to Twitter</a>
+    		</div>
     		<div class="buffer">
-    			<canvas id="signit" width="960" height="540" style="background-image:url(/static/img/declaration.png);"></canvas>
-	    	</div>
-    		<div class="buffer">
-    			<a href="#share" class="btn btn-default">Share it</a>
+    			<div id="signatures">
+    				<ul class="signaturelist">
+					<% for(var i=0; i<signatures.length; i++) {%>
+					   	<li id="time<%= signatures[i]['time'] %>">
+					   		<a href="<%= signatures[i]['tweetback'] %>" target="_blank"><%= signatures[i]['name'] %></a>
+					   		<% for (var prop in signatures[i]) {%>
+					   		<span class="sig-metadata meta-<%= prop %> "><%= signatures[i][prop] %></span>
+							<% } %>
+					   	</li>
+					<% } %>
+					</ul>
+    			</div>
     		</div>
     	</main>
     	<footer class="mainfooter navbar navbar-default navbar-fixed-bottom">
