@@ -10,7 +10,8 @@ function RenderPic (argument) {
 		pubsub = require('./pubsub.js'),
 		topics = require('./topics.js'),
 
-		imageSaveRoot = '/../data/savedimages/',
+		imageSaveWebRoot = '/static/savedsignatures/',
+		imageSaveRoot = '/..'+imageSaveWebRoot,
 
 		settings = { w:600, h:340 },
 		canvas = new NodeCanvas( settings.w, settings.h );
@@ -68,10 +69,10 @@ function RenderPic (argument) {
 				ctx.save();
 
 				ctx.drawImage( decIMG, _cfg.imgx, _cfg.imgy );
-				ctx.drawImage( logoIMG, 40, 0 );
+				//ctx.drawImage( logoIMG, 40, 0 );
 
 				ctx.font = '35px "Montserrat-Regular"';
-				ctx.fillStyle = 'rgba(50,0,0,0.9)';
+				ctx.fillStyle = 'rgba(10,0,0,0.7)';
 				ctx.translate( _cfg.txtx, _cfg.txty );
 				ctx.rotate( Math.round((Math.random()*6)-4)*(Math.PI / 180) );
 				ctx.fillText( data_replyto, 0, 0);
@@ -104,14 +105,14 @@ function RenderPic (argument) {
 		var _d = new Date();
 		var _did = ''+_d.getFullYear()+('0'+(_d.getMonth()+1)).slice(-2)+('0'+_d.getDay()).slice(-2);
 
-		var _picpath = path.join(__dirname + imageSaveRoot + _replyto.match(/[a-zA-Z0-9_]+/gi) + '.jpg');
+		var _picpath = path.join(__dirname + imageSaveRoot + (_replyto.match(/[a-zA-Z0-9_]+/gi)+'') + '.jpg');
 
 		var onRenderedCallback = function () {
 			if ( !postflag ) {
-				pubsub.publish( topics.TWT_RENDEREDPIC, { picpath: _picpath, replyto: data.replyto, id: data.id } );
+				pubsub.publish( topics.TWT_RENDEREDPIC, { picpath: _picpath, replyto: data.replyto, id: data.id, trackid: data.trackid } );
 				postflag = true;
 			}
-			console.log("Tweeting... " + data.replyto + " - " + data.id );
+			console.log("Tweeting... " + data.replyto + " - " + data.id + " - " + data.trackid );
 		}
 		
 		renderImage( _replyto, data.id, _picpath, onRenderedCallback );
@@ -121,7 +122,7 @@ function RenderPic (argument) {
 		var postflag = false;
 		var _replyto = "@"+(data.replyto).replace(/[^a-zA-Z0-9_\s]/gi, '').substr(0,18);
 		var _id = (""+data.id).match(/[a-zA-Z0-9_]+/gi);
-		var _picpath = path.join(__dirname + imageSaveRoot + _replyto.replace(/\@/gi, '').replace(/\s/gi, '-') + '.jpg');
+		var _picpath = path.join(__dirname + imageSaveRoot + (_replyto.replace(/\@/gi, '').replace(/\s/gi, '-')+'') + '.jpg');
 		
 		console.log( _picpath );
 		var onRenderedCallback = function () {
@@ -147,6 +148,15 @@ function RenderPic (argument) {
 	}
 
 	RenderPic.prototype.init = init;
+	RenderPic.prototype.imageSaveWebRoot = imageSaveWebRoot;
+}
+RenderPic.instance = null;
+RenderPic.getInstance = function(){
+    if(this.instance === null){
+        this.instance = new RenderPic();
+    }
+    return this.instance;
 }
 
-module.exports = (new RenderPic());
+module.exports = RenderPic.getInstance();
+

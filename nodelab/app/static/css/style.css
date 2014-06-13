@@ -34,24 +34,26 @@
   background-image: none;
 }
 .btn-default {
-  text-shadow: 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(top, #fff 0%, #e0e0e0 100%);
-  background-image:         linear-gradient(to bottom, #fff 0%, #e0e0e0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  background-repeat: repeat-x;
-  border-color: #dbdbdb;
-  border-color: #ccc;
+  background-color: #e13230;
+  padding: 15px 6px;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 150%;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  -ms-transition: background-color 300ms;
+  -o-transition: background-color 300ms;
+  transition: background-color 300ms;
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #e0e0e0;
-  background-position: 0 -15px;
+  background-color: #0a3759;
+  color: #FFF;
 }
 .btn-default:active,
 .btn-default.active {
-  background-color: #e0e0e0;
-  border-color: #dbdbdb;
+  color: #FFF;
+  background-color: #0a3759;
 }
 .btn-primary {
   background-image: -webkit-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
@@ -359,10 +361,17 @@ html,
 body {
 	height: 100%;
 	width: 100%;
+  font-family: 'Roboto', Helvetica, sans-serif;
 }
 h1, h2, h3, h4, h5, h6, .main-heading {
-  font-family: 'Montserrat', sans-serif;
   font-size: 190%;
+}
+a {
+  color: #E13231;
+}
+a:hover, a:focus {
+  color: #0a3759;
+  text-decoration: underline;
 }
 .main-heading {
   font-size: 350%;
@@ -373,9 +382,45 @@ h1, h2, h3, h4, h5, h6, .main-heading {
   float: none;
   padding: 50px 0;
 }
-main, .main {
-	padding-top: 200px;
+.container {
+  position: relative;
 }
+.logo-pma {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 60px;
+  height: 100px;
+  text-align: left;
+  text-indent: -9999px;
+  background: url('/static/img/pma-logo.png') left top no-repeat;
+}
+.logo-signit {
+  max-width: 340px;
+  height: 300px;
+  text-align: left;
+  margin: 0 auto;
+  text-indent: -9999px;
+  position: relative;
+}
+.logo-signit img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+main, .main {
+	position: relative;
+}
+.headerbox {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 #signit {
   display: block;
   height: auto;
@@ -393,25 +438,47 @@ main, .main {
   padding-bottom: 15px;
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 .buffer img {
-  max-width: 100%;
+  max-width: 90%;
+}
+.openingcopy {
+  max-width: 620px;
+  text-align: center;
+}
+.openingcopy p {
+  line-height: 1.8;
 }
 
+#signatures {
+  position: relative;
+}
 #signatures ul {
   display: block;
   list-style: none;
   width: 100%;
-  float: left;
+  position: relative;  
 }
-
+.appready #signatures li {
+  position: absolute;
+  float: none;
+}
 #signatures li {
-  display: block;
-  width: 33.3%;
-  height: 100px;
+  position: relative;
   float: left;
+  left: 0%;
+  top: 0%;
+  display: block;
+  width: 33%;
+  height: 100px;
   font-size: 150%;
   font-family: 'Montserrat', sans-serif;
+  -webkit-transition: left 500ms, top 500ms;
+  -moz-transition: left 500ms, top 500ms;
+  -ms-transition: left 500ms, top 500ms;
+  -o-transition: left 500ms, top 500ms;
+  transition: left 500ms, top 500ms;
 }
 #signatures li a {
   display: block;
@@ -419,17 +486,122 @@ main, .main {
   height: 100%;
   padding: 30px 0;
   text-align: center;
-  background-color: rgba(211, 228, 243, 0);
-  -webkit-transition: background-color 300ms;
-  -moz-transition: background-color 300ms;
-  -ms-transition: background-color 300ms;
-  -o-transition: background-color 300ms;
-  transition: background-color 300ms;
+  color: #0a3759;
 }
-#signatures li a:hover {
-  background: rgba(211, 228, 243, 1);
+@media (max-width: 768px) {
+  #signatures li {
+    width: 50%;
+  }
+}
+@media (max-width: 512px) {
+  #signatures li {
+    width: 100%;
+  }
+}
+
+.originalsig {
+  text-align: center;
 }
 .sig-metadata {
   font-size: 10px;
   display: none;
+}
+#output {
+  position: fixed;
+  width: 100%;
+  height: 2000px;
+}
+#output img {
+  display: block;
+  position: absolute;
+  opacity: 0.5;
+  width: 100%;
+}
+#background {
+  position: absolute;
+  width: 100%;
+  height: 2000px;
+}
+#background img {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+.btn-gianttwitter,
+.btn-giantfacebook {
+    min-width: 250px;
+}
+.countbox {
+  padding: 0;
+  height: 80px;
+  background: url('/static/img/lines.png') center center repeat-x;
+}
+.countboxcutout {
+  height: 80px;
+  background: #FFF;
+  margin: 0 auto;
+  width: 180px;
+  padding: 10px 20px;
+  text-align: center;
+}
+.sigcount {
+  color: #0a3759;
+  font-size: 300%;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+#signitmessage {
+  overflow: hidden;
+}
+#thankyoumessage {
+  height: 0;
+  overflow: hidden;
+}
+
+.showthankyou #signitmessage {
+  height: 0;
+}
+.showthankyou #thankyoumessage {
+  height: auto;
+}
+#userimage {
+  text-align: center;
+  height: 0;
+  overflow: hidden;
+}
+.imgbox {
+  height: 250px;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+.imgbox img {
+  border: 1px solid #0a3759;
+  display: inline-block;
+  height: 100%;
+}
+#userimage .btn {
+  font-size: 120%;
+  background-color: #0a3759;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+#overlay iframe {
+  margin: 0 0 0 -250px;
+  width: 500px;
+  height: 400px;
+  top: 10%;
+  left: 50%;
+  display: block;
+  background-color: #FFFFFF;
+  position: relative;
+  box-shadow: 0 0 25px #FFFFFF;
 }

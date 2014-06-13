@@ -6,19 +6,19 @@ function TwitterStreamer () {
 		pubsub = require('./pubsub.js'),
 		topics = require('./topics.js'),
 		tuwm = require('./tuwm.node.js'),
-		config = require('./config.js');
+		config = require('./config.js'),
+		Datastore = require('../backend/Datastore.node.js');
 
 	var twitter, twitterWithMedia;
 
-	var targetHandle = 'keegangbrown', 
-		devmodeonly = true, // false, //Must be false in production
-		targetIncomingHashTag = 'JustADevHashtag', //'SignIt2014',
-		targetOutgoingHashTag = 'JustAnotherDevHashtag', //'YouSignedIt2014',
-		messageBank = [
-			'Thanks for rocking!',
-			"You're neato!",
-			'Supercool!'
-		];
+	var targetHandle = 'SignIt2014', //'peteramayer',
+		devmodeonly = false, //Must be false in production
+		targetIncomingHashTag = 'ADevHasht', //'SignIt2014',
+		targetOutgoingHashTag = 'Just2ADev', //'YouSignedIt2014',
+		publicURL = "http://signit2014.com/", // 'http://signit2014.com/',
+		trackerURL = "http://signit2014.com/", // 'http://bit.ly/xxxx',
+		signitMessage = 'Yes, I want to sign the Declaration of Independence, #%%HASHTAG%%, @%%HANDLE%%.',
+		replyMessage = '@%%HANDLE%% just signed the Declaration #%%HASHTAG%%. Share it with the world: %%URL%%';
 
 	function init () {
 		twitter = new twitter_lib( config.twitter );
@@ -26,6 +26,12 @@ function TwitterStreamer () {
 		openTwitterStream();
    		pubsub.subscribe( topics.TWT_RENDEREDPIC, replyWithPic )		
 		console.log("TwitterStreamer inited.");
+	}
+
+	function getTweetMessage (handle, hashtag, url, message) {
+		var output = message.replace('%%HASHTAG%%', hashtag);
+		output = output.replace('%%URL%%', url)
+		return output.replace('%%HANDLE%%', handle);
 	}
 
 	function openTwitterStream () {
@@ -43,13 +49,16 @@ function TwitterStreamer () {
 				if ( devmodeonly || ( !!data.user.screen_name && data.user.screen_name !== targetHandle ) ) {
 					takeAction(data);
 				} else {
-					console.log( "Incoming tweet is malformed. Not responding." );
+					console.log( "Incoming tweet is from this account. Doing nothing." );
 				}
 			} else if ( data.user.screen_name === targetHandle && ( hasHashTag( targetOutgoingHashTag, data.entities.hashtags ) ) ) {
 				console.log( "Outgoing Hashtag used: " + data.in_reply_to_screen_name );
 			}
+		} else if ( !!data.delete ) {
+			console.log( "Twitter Data -- delete request.", data.delete.status );
+			pubsub.publish( topics.TWT_DELETE, { id_str:  data.delete.status.id_str } )
 		} else {
-			console.log( "Twitter Data -- No applicable tweet." );
+			console.log( "Twitter Data -- No applicable data." );
 		}
     }
 
@@ -57,23 +66,38 @@ function TwitterStreamer () {
     	console.log( "Stream error! "+err );
    	}
 
-   	function replyWithPic (topic, data) {
-   		console.log('replyWithPic');
-   		var _replyto = data.replyto;
-   		var _replyto_id = data.id_str;
-
-		twitterWithMedia.post( { 
-			status: "@"+data.replyto+" "+messageBank[ (Math.floor(messageBank.length*Math.random())) ]+' #'+targetOutgoingHashTag,
-			in_reply_to_status_id: data.id
-		}, data.picpath, successfullTweetback );
+   	function parseTrackerID (hashtags) {
+   		var output = '';
+   		if ( hashtags.length > 1 ) {
+	   		for (var i = hashtags.length - 1; i >= 0; i--) {
+	   			if ( !!hashtags[i].text.match(/^sig[a-zA-Z0-9_]+/) ) {
+	   				output = hashtags[i].text.match(/^sig[a-zA-Z0-9_]+/)[0];
+	   			}
+	   		}
+   		}
+   		return output;
    	}
 
-   	function successfullTweetback ( err, resp ) {
+   	function replyWithPic (topic, data) {
+   		console.log('replyWithPic');
+   		//var _replyto = data.replyto;
+   		//var _replyto_id = data.id_str;
+
+		twitterWithMedia.post( { 
+			//status: "@"+data.replyto+" "+messageBank[ (Math.floor(messageBank.length*Math.random())) ]+' #'+targetOutgoingHashTag,
+			status: getTweetMessage( data.replyto, targetIncomingHashTag, publicURL, replyMessage ),
+			in_reply_to_status_id: data.id
+		}, data.picpath, function (err, resp) {
+			successfullTweetback( err, resp, data )
+		});
+   	}
+
+   	function successfullTweetback ( err, resp, incomingdata ) {
    		if (!!err) throw err;
    		var data = JSON.parse( resp.body );
-   		console.log('successfullTweetback: ' + data.in_reply_to_screen_name + " -- " + data.id_str );
+   		console.log('successfullTweetback: ', incomingdata );
    		if ( !!data.in_reply_to_screen_name && !!data.id_str ) {
-   			pubsub.publish( topics.TWT_PIC_POSTED, { replyto: data.in_reply_to_screen_name, id: data.id_str } );
+   			pubsub.publish( topics.TWT_PIC_POSTED, { replyto: data.in_reply_to_screen_name, id: data.id_str, trackid: incomingdata.trackid } );
    		}
    	}
 
@@ -87,12 +111,37 @@ function TwitterStreamer () {
 	}	   	
 
    	function takeAction ( data ) {
-   		console.log('Tweet Correct! Publish message.');
-   		pubsub.publish( topics.TWT_GOTTWEET, { replyto: data.user.screen_name, id: data.id_str } );
+   		console.log('Tweet Correct! Check duplicate.');
+   		//Datastore.getOneSignature( data.user.screen_name, function (onesig) {
+   			//console.log('New signature: ' + !onesig);
+   			//if ( !onesig ) {
+		   		pubsub.publish( topics.TWT_GOTTWEET, { 
+		   			replyto: data.user.screen_name, 
+		   			id: data.id_str, 
+		   			trackid: parseTrackerID( data.entities.hashtags )
+		   		});
+	   		//}
+   		//});
    	}
 
+   	function getSignItMessage () {
+   		return getTweetMessage( targetHandle, targetIncomingHashTag, publicURL, signitMessage );
+   	}
+
+   	TwitterStreamer.prototype.targetHandle = targetHandle;
+   	TwitterStreamer.prototype.trackerURL = trackerURL;
+   	TwitterStreamer.prototype.publicURL = publicURL;
+   	TwitterStreamer.prototype.getSignItMessage = getSignItMessage;
    	TwitterStreamer.prototype.init = init;
 }
 
-module.exports = (new TwitterStreamer());
+TwitterStreamer.instance = null;
+TwitterStreamer.getInstance = function(){
+    if(this.instance === null){
+        this.instance = new TwitterStreamer();
+    }
+    return this.instance;
+}
+
+module.exports = TwitterStreamer.getInstance();
 

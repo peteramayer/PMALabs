@@ -3,6 +3,8 @@
 *config.js
 */npm-debug.log
 *.vagrant
-**savedimages/
+**savedsignatures/
 design/
 nodelab/app/data/
+.htpasswd
+*nodelab

@@ -3,64 +3,100 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title>#SIGNIT2014</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Ruthie' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/static/css/style.css">
-		<!--[if lt IE 9]>
-	        <script src="/static/js/html5.shiv.min.js"></script>
-	    <![endif]-->
-    </head>
-    <body>
-    	<header class="navbar navbar-transparent navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="buffer col-xs-12">
-					<div class="navbar-header">
-						<a class="main-heading" href="#">#SIGNIT2014</a>
-					</div>
+<head>
+	<meta charset="utf-8">
+	<title>#SignIt2014 | <%= signdesc %></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<meta property="fb:app_id" content="644528775640984" />
+	<meta property="og:title" content="#SignIt2014 | <%= signdesc %>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="<%= shareurl %>" />
+	<meta property="og:image" content="<%= shareimage %>" />
+	<meta property="og:description" content="<%= signdesc %>" />
+	<meta name="description" value="<%= signdesc %>" />
+	<!--[if lt IE 9]> <script src="/static/js/html5.shiv.min.js"></script> <![endif]-->
+</head>
+<body>
+	<div id="background"><img src="/static/img/page-bg.png" alt=""></div>
+	<div id="output"></div>
+	<header class="navbar navbar-transparent" role="navigation">
+		<div class="container">
+			<div class="headerbox">
+				<h1 class="logo-signit"><img src="/static/img/logo.png" alt="#SIGNIT2014" /></h1>
+				<a class="logo-pma" href="http://peteramayer.com" target="_blank">Peter Mayer Advertising</a>
+			</div>
+		</div>
+	</header>
+	<main class="main container">
+		<div class="buffer openingcopy">
+		<% if ( !onesig ) { %>
+			<div id="signitmessage">
+				<p>The summer of 1776 was certainly a season to remember. The patriotic spirit, the speeches, the powdered wigs. It&rsquo;s just too bad you weren&rsquo;t around to sign the <a href="http://www.archives.gov/exhibits/charters/treasure/index.html" target="_blank">Declaration of Independence</a>. <br>
+				So here&rsquo;s your chance. </p>
+				<p>If you still believe in the values, ideals and rights that made America what it is today, click below to declare your independence. And for every signature that&rsquo;s added, we&rsquo;ll make a donation to the <a href="http://www.archives.gov/nae/support/" target="_blank">Foundation for the National Archives</a> to help preserve our nation&rsquo;s historical documents.</p>
+				<br>
+				<a href="https://twitter.com/share" data-url="<%= trackerURL %>" data-text="<%= tweetmessage %>" target="_blank" class="btn btn-default btn-gianttwitter twittershare"><img src="/static/img/twitter-bird-logo.png" alt="Twitter"> Sign Now</a>
+			</div>
+		<% } else { %>
+			<div id="signitmessage">
+				<div class="imgbox"><img src="<%= shareimage %>" alt=""></div>
+				<br>
+				<p>@<%= onesig %> just signed the Declaration of Independence. By doing so, you&rsquo;re helping to preserve our nation&rsquo;s historical achievements like speeches, memoirs and proof of men wearing tight knee-breeches.</p>
+				<a href="https://twitter.com/share" data-url="<%= trackerURL %>" data-text="<%= tweetmessage %>" target="_blank" class="btn btn-default btn-gianttwitter twittershare"><img src="/static/img/twitter-bird-logo.png" alt="Twitter"> Sign Now</a>
+			</div>
+		<% } %>			
+			<div id="thankyoumessage">
+				<h2><img src="/static/img/thankyou-bubble.png" alt=""> Thank You</h2>
+				<p>You just added your name on the Declaration of Independence. By doing so, you&rsquo;re helping to preserve our nation&rsquo;s historical achievements like speeches, memoirs and proof of men wearing tight knee-breeches.</p>
+				<div id="userimage">
+					<div class="imgbox"></div>
+					<a id="facebookaftershare" href="https://www.facebook.com/sharer/sharer.php" data-url="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="btn btn-default btn-giantfacebook popup"><img src="/static/img/facebook-logo.png" alt="Twitter"> Share to Facebook</a>
+					<a id="twitteraftershare" href="https://twitter.com/share" data-url="https://twitter.com/share?url=" target="_blank" class="btn btn-default btn-gianttwitter popup"><img src="/static/img/twitter-bird-logo.png" alt="Twitter"> Share to Twitter</a>
 				</div>
 			</div>
-    	</header>
-    	<main class="main container">
-	    	<div class="buffer">
-	    		<div class="input-group input-group-lg">
-                    <span class="input-group-addon">@</span>
-                    <input type="text" class="form-control" id="yourname" name="yourname" value="yourtwitterhandle" maxlength="18">
-    				<a id="mainsignit" href="#share" class="input-group-addon btn btn-default">Share it</a>
-                </div>
-				<div id="output"></div>
-    		</div>
-	    	<div class="buffer">
-    			<a href="#share" class="btn btn-default">Share to Facebook</a>
-    			<a href="#share" class="btn btn-default">Share to Twitter</a>
-    		</div>
-    		<div class="buffer">
-    			<div id="signatures">
-    				<ul class="signaturelist">
+		</div>
+		<div class="buffer countbox">
+			<div class="countboxcutout">
+				<p class="sigcount" id="sigcount"><%= sigcount %></p>
+				<small>People have signed</small>
+			</div>
+		</div>
+		<div class="buffer">
+			<div id="signatures">
+				<ul class="signaturelist">
 					<% for(var i=0; i<signatures.length; i++) {%>
-					   	<li id="time<%= signatures[i]['time'] %>">
-					   		<a href="<%= signatures[i]['tweetback'] %>" target="_blank"><%= signatures[i]['name'] %></a>
-					   		<% for (var prop in signatures[i]) {%>
-					   		<span class="sig-metadata meta-<%= prop %> "><%= signatures[i][prop] %></span>
-							<% } %>
-					   	</li>
+					<li id="time<%= signatures[i]['time'] %>" class="usersig">
+						<a href="<%= signatures[i]['tweetback'] %>" target="_blank"><%= signatures[i]['name'] %></a>
+						<% for (var prop in signatures[i]) {%>
+						<span class="sig-metadata meta-<%= prop %> "><%= signatures[i][prop] %></span>
+						<% } %>
+					</li>
 					<% } %>
-					</ul>
-    			</div>
-    		</div>
-    	</main>
-    	<footer class="mainfooter navbar navbar-default navbar-fixed-bottom">
-    		<div class="container">
-    			<p>&copy; 2014</p>
-    		</div>
-    	</footer>
-    	<script src="/static/js/jquery.min.js"></script>
-    	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-    	<script src="/static/js/TweenMax.min.js"></script>
-    	<script src="/static/js/jquery.gsap.min.js"></script>
-    	<script src="/static/js/signit.js"></script>
-    </body>
+					<%
+					var place = 1;
+					var flops = [ 2, 5, 5 ]; 
+					var signum = 1;
+					var rhythym = flops.length;
+					for(var i=0; i<56; i++) {
+
+					%>
+					<li class="originalsig" data-place="<%= (place) %>"><img src="/static/img/original-signatures/sig-<%= signum %>.png" alt=""></li>
+					<% 
+						place += flops[ (i % rhythym ) ];
+						signum++;
+					} 
+					%>
+				</ul>
+			</div>
+		</div>
+	</main>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/TweenMax.min.js"></script>
+	<script src="/static/js/jquery.gsap.min.js"></script>
+	<script src="/static/js/signit.js"></script>
+</body>
 </html>

@@ -4,8 +4,7 @@ var express = require('express'),
 	topics = require('./backend/topics.js'),
 	Datastore = require('./backend/Datastore.node.js');
 	TwitterStream = require('./backend/TwitterStream.node.js'),
-	PictureRenderer = require('./backend/RenderPic.node.js'),
-	LandingPage = require('./backend/LandingPage.node.js');
+	RenderPic = require('./backend/RenderPic.node.js');
 
 process.on('uncaughtException', function (exception) {
    console.log("\n\n ------ Error ------");
@@ -16,14 +15,45 @@ process.on('uncaughtException', function (exception) {
 app.set('view engine', 'ejs');
 app.engine('.html', require('ejs').__express);
 
-Datastore.init();
+Datastore.init( TwitterStream.targetHandle );
 TwitterStream.init();
-PictureRenderer.init();
-//LandingPage.init( Datastore );
+RenderPic.init();
 
 app.get('/', function (req, res) {
 	Datastore.getSignatures( function (signatures) {
-		res.render('index.html', { signatures: signatures } );
+		res.render('index.html', { 
+			onesig: '',			
+			sigcount: (signatures.length + 56),
+			signatures: signatures,
+			trackerURL: TwitterStream.trackerURL,
+			tweetmessage: TwitterStream.getSignItMessage(),
+			shareurl: TwitterStream.publicURL, 
+			shareimage: TwitterStream.publicURL+'static/images/logo.jpg', 
+			signdesc: 'Sign the Declaration of Independence with Twitter'
+		} );
+	})
+});
+
+app.get('/signed/:uid', function (req, res) {
+	var _signame = req.params.uid.replace(/[^a-zA-Z0-9_]/gi,'');
+	Datastore.getOneSignature( _signame, function (onesig) {
+		if ( !!onesig ) {
+			Datastore.getSignatures( function (signatures) {
+				res.render('index.html', { 
+					onesig: _signame,
+					sigcount: (signatures.length + 56),
+					signatures: signatures,
+					trackerURL: TwitterStream.trackerURL,
+					tweetmessage: TwitterStream.getSignItMessage(),
+					shareurl: TwitterStream.publicURL+'signed/'+_signame, 
+					shareimage: TwitterStream.publicURL+'/static/savedsignatures/'+_signame+'.jpg', 
+					signdesc: '@' + _signame + ' signed the Declaration of Independence with Twitter'
+				});
+			});
+		} else {
+			console.log(onesig, _signame);
+			res.redirect(302,'/');
+		}
 	})
 });
 
@@ -41,21 +71,35 @@ app.get('/updatedsignatures/:latesttime', function (req, res) {
 	}
 });
 
-app.get('/renderedimage/:yourname/:picdate', function (req, res) {
+app.get('/renderedimage/:yourname', function (req, res) {
 	if ( !!req.params && !!req.params.yourname ) {
-		console.log( "Get Rendered Image for: " + req.params.yourname.match(/[a-zA-Z0-9_\s]{1,30}/gi) );
-		var _d = new Date();
-		var _did = ''+_d.getFullYear()+('0'+(_d.getMonth()+1)).slice(-2)+('0'+_d.getDay()).slice(-2);
-		if ( !!req.params.picdate && !!req.params.picdate.match(/[0-9]{8}/gi) ) {
-			_did = req.params.picdate.match(/[0-9]{8}/gi);
-		}
-		pubsub.publish( topics.IMG_REQUEST_RENDER, { 
-			replyto: req.params.yourname.match(/[a-zA-Z0-9_\s]{1,30}/gi)[0], 
-			id: _did, 
-			callback: function ( imagepath ) {
-				res.sendfile( imagepath );
+		if ( req.params.yourname.length < 19 ) {
+			var _name = req.params.yourname.replace(/[^a-zA-Z0-9_\s]/gi);
+			Datastore.getOneSignature( _name, function (onesig) {
+				if ( !!onesig ) {
+					res.redirect(301, RenderPic.imageSaveWebRoot+_name+'.jpg');
+				} else {
+					res.status(404).send('');
+				}
+			});
+/*
+			var _d = new Date();
+			var _did = ''+_d.getFullYear()+('0'+(_d.getMonth()+1)).slice(-2)+('0'+_d.getDay()).slice(-2);
+			if ( !!req.params.picdate && !!req.params.picdate.match(/[0-9]{8}/gi) ) {
+				_did = req.params.picdate.match(/[0-9]{8}/gi);
 			}
-		});
+			pubsub.publish( topics.IMG_REQUEST_RENDER, { 
+				replyto: _name, 
+				id: _did, 
+				callback: function ( imagepath ) {
+					res.sendfile( imagepath );
+				}
+			});
+*/
+
+		} else {
+			res.send( 412, { error:'twitter handle too long' } );
+		}
 	} else {
 		res.send( 412, { error:'incorrect image params' } );
 		console.log( req.params );
