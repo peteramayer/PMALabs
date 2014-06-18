@@ -12,25 +12,20 @@ function RenderPic (argument) {
 
 		imageSaveWebRoot = '/static/savedsignatures/',
 		imageSaveRoot = '/..'+imageSaveWebRoot,
+		fontname = 'Cedarville-Cursive',
 
 		settings = { w:600, h:340 },
 		canvas = new NodeCanvas( settings.w, settings.h );
 
 		signatureConfigs = [
-			{ imgx: 0, imgy: 0, txtx: 175, txty: 210 }
-			/*
-			, { imgx: -210, imgy: -150, txtx: 195, txty: 295 }
-			, { imgx: -420, imgy: -210, txtx: 220, txty: 320 }
-			, { imgx: -400, imgy: -190, txtx: 695, txty: 300 }
-			, { imgx: -390, imgy: -160, txtx: 30, txty: 300 }
-			*/
+			{ imgx: 0, imgy: 0, txtx: 175, txty: 225 }
 		];
 
 	var decIMG = null, logoIMG = null, ctx = null, sigFont = null;
 	
 	function loadsignaturefont () {
-		var _path = path.join(__dirname + '/../static/fonts/Montserrat-Regular.ttf');
-		sigFont = new Font( "Montserrat-Regular", _path );
+		var _path = path.join(__dirname + '/../static/fonts/'+fontname+'.ttf');
+		sigFont = new Font( "Cedarville-Cursive", _path );
 	}
 
 	function loadimages () {
@@ -64,19 +59,23 @@ function RenderPic (argument) {
 				}
 
 				console.log( "Rendering image" );
-				ctx.addFont(sigFont);
-				ctx.clearRect( 0, 0, settings.w, settings.h);
-				ctx.save();
+				var _canvas = new NodeCanvas( settings.w, settings.h );
+				var _ctx = canvas.getContext('2d');
 
-				ctx.drawImage( decIMG, _cfg.imgx, _cfg.imgy );
-				//ctx.drawImage( logoIMG, 40, 0 );
+				_ctx.addFont(sigFont);
+				_ctx.clearRect( 0, 0, settings.w, settings.h);
+				_ctx.save();
 
-				ctx.font = '35px "Montserrat-Regular"';
-				ctx.fillStyle = 'rgba(10,0,0,0.7)';
-				ctx.translate( _cfg.txtx, _cfg.txty );
-				ctx.rotate( Math.round((Math.random()*6)-4)*(Math.PI / 180) );
-				ctx.fillText( data_replyto, 0, 0);
-				ctx.restore();
+				_ctx.drawImage( decIMG, _cfg.imgx, _cfg.imgy );
+				//_ctx.drawImage( logoIMG, 40, 0 );
+
+				//_ctx.font = '35px "Cedarville-Cursive"';
+				_ctx.font = '40px "'+fontname+'"';
+				_ctx.fillStyle = 'rgba(10,0,0,0.8)';
+				_ctx.translate( _cfg.txtx, _cfg.txty );
+				_ctx.rotate( Math.round((Math.random()*6)-4)*(Math.PI / 180) );
+				_ctx.fillText( data_replyto, 0, 0);
+				_ctx.restore();
 
 				var out = fs.createWriteStream(_picpath);
 				var stream = canvas.jpegStream();

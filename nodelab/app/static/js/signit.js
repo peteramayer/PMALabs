@@ -2,6 +2,7 @@
  *	SIGN IT CLASS -- CANVAS TEXT OVER IMG
  ******************************************/
 
+
 //RAF Pollyfill
 "use strict";if(!Date.now)Date.now=function(){return(new Date).getTime()};(function(){var n=["webkit","moz"];for(var e=0;e<n.length&&!window.requestAnimationFrame;++e){var i=n[e];window.requestAnimationFrame=window[i+"RequestAnimationFrame"];window.cancelAnimationFrame=window[i+"CancelAnimationFrame"]||window[i+"CancelRequestAnimationFrame"]}if(/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)||!window.requestAnimationFrame||!window.cancelAnimationFrame){var a=0;window.requestAnimationFrame=function(n){var e=Date.now();var i=Math.max(a+16,e);return setTimeout(function(){n(a=i)},i-e)};window.cancelAnimationFrame=clearTimeout}})();
 
@@ -12,17 +13,20 @@
 
 	var sigs = null, 
 		pollingTimer = null, 
-		breakpoints = [ 767, 511, 0 ], 
+		breakpoints = [ 768, 511, 0 ], 
 		percentages = [ 33, 50, 100 ],
 		lastbreakpoint = 0,
 		seedID = '';
 
-	function Init () {
+	function Init () {	
+		trackingInit();
+		handleCookiedUser();
 		addClickHandlers();
 		polling();
 		setupTileFlow();
 		resizeHandler();
 		initTileFlow();
+		$('.no-js').removeClass('no-js');
 	}
 
 	function polling () {
@@ -70,11 +74,16 @@
 
 			$(this).attr('data-seed', seed);
 
-			var windowObj = window.open( 
-				_url, 
-				'twitterwindow', 
-				'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=500,height=400,top=50%,left=50%'
-			);
+
+			if ( !!navigator.userAgent.match(/twitter/gi) ) {
+				var windowObj = window.open( 'twitter://post?' + 'text=' + encodeURIComponent( $(this).attr('data-text') + ' #'+seed+" " ) + encodeURI( $(this).attr('data-url') + ' ')  );
+			} else {
+				var windowObj = window.open( 
+					_url, 
+					'twitterwindow', 
+					'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=600,height=450,top=50%,left=50%'
+				);
+			}
 
 			checkTwitterPopup( windowObj );
 		});
@@ -83,28 +92,45 @@
 			var windowObj = window.open( 
 				this.href, 
 				'_blank', 
-				'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=500,height=400,top=50%,left=50%'
+				'menubar=no,location=no,resizable=no,scrollbars=yes,status=no,width=600,height=450,top=50%,left=50%'
 			);
 		});
 	}
 
+	function trackingInit () {
+		$('[data-trackclick]').on('click', function () {
+			var type = $(this).attr('data-trackclick');
+			var text = '';
+			if ( !!$(this).attr('data-tracktext') ) {
+				text = $(this).attr('data-tracktext');
+			} else {
+				text = $(this).text();
+			}
+			ga( 'send', 'event', type, 'clicked', text );
+		});
+	}
+
 	function checkTwitterPopup (windowObj) {
-		var _href = true;
-		try {
-			_href = !!windowObj.location.href;
-		} catch (e) {
-			_href = true;
-		}
+		var _href = !windowObj.closed;
 		if ( !!_href ) {
-			setTimeout( function () { checkTwitterPopup(windowObj) }, 10 );
+			setTimeout( function () { checkTwitterPopup(windowObj) }, 500 );
 		} else {
+			if ( !!pollingTimer ) {
+				clearTimeout(pollingTimer);
+				pollingTimer = setTimeout(function () {
+					lookForMore( polling );
+				}, 100 );
+			}
+		}
+
+		if ( !seedID ) {
 			handleTweetSent();
 		}
 	}
 
 	function handleTweetSent () {
 		var shareBTN = $('a.twittershare');
-		shareBTN.css({ 'visibility': 'hidden' });
+		//shareBTN.css({ 'visibility': 'hidden' });
 		seedID = shareBTN.attr('data-seed');
 	}
 
@@ -155,6 +181,7 @@
 		};
 		$("#signatures").css( { height: Math.ceil((height * tileArray.length) / limit) } );
 		$("#sigcount").text( tileArray.length );
+		ga('set', 'signatures', tileArray.length);
 	}
 
 	function lookForMore ( callback ) {
@@ -179,8 +206,8 @@
 							handleFoundSeedID( data[i], seedID );
 						}
 						var _sig = [
-							'<li id="time'+data[i].time+'" data-seedid="'+data[i].trackid+'">',
-						   	'<a href="'+data[i].tweetback+'" target="_blank">'+data[i].name+'</a>',
+							'<li id="time'+data[i].time+'" data-seedid="'+data[i].trackid+'" class="usersig rotate'+( Math.floor( (5*Math.random() ) ) )+'">',
+						   	'<a href="/signed/'+data[i].name.replace(/[^a-zA-Z0-9_]*/gi,'')+'/">'+data[i].name+'</a>',
 						   	'</li>'
 						];
 						newsigs.push( _sig.join(' ') );
@@ -199,18 +226,44 @@
 		});
 	}
 
-	function handleFoundSeedID ( data, seedID ) {
-		console.log('handleFoundSeedID', data);
+	function handleFoundSeedID ( data, _seedID ) {
+		//console.log('handleFoundSeedID', data);
 		seedID = '';
 
 		$('#userimage .imgbox').html('<img src="/static/savedsignatures/'+data.name.replace(/[^a-zA-Z0-9_]*/,'')+'.jpg" alt="" />');
-		var shareURLParam = 'http://'+location.host+'/signed/'+data.name.replace(/[^a-zA-Z0-9_]*/,'');
-		$("#facebookaftershare").attr('href', $("#facebookaftershare").attr('data-url')+encodeURIComponent(shareURLParam) );
-		$("#twitteraftershare").attr('href', $("#twitteraftershare").attr('data-url')+encodeURIComponent(shareURLParam) );
+		var shareURLParam = encodeURIComponent( ( 'http://signit2014.com/signed/'+data.name.replace(/[^a-zA-Z0-9_]*/,'') ) );
+		var twitterText = encodeURIComponent('I just signed the Declaration #SignIt2014. You can do it too. ');
+		$("#facebookaftershare").attr('href', $("#facebookaftershare").attr('data-url')+shareURLParam );
+		$("#twitteraftershare").attr('href', $("#twitteraftershare").attr('data-url')+shareURLParam+"&text="+twitterText );
 		
 		$('.openingcopy').addClass('showthankyou');
-		$('#userimage').animate( { height: 350 }, 300 );
-		location.hash = '#thankyoumessage';
+
+		if ( !data.skipthankyou ){
+			$('#userimage').animate( { height: 350 }, 300 );
+			location.hash = '#thankyou';
+			ga('send', 'pageview', "/thankyou");
+		} else {
+			$('#userimage').css( { height: 350 } );
+		}
+
+		$.cookie('signature', data.name, { expires: 90 } );
+	}
+
+	function handleCookiedUser () {
+		var sigcookie = $.cookie('signature');
+		var hassig = false;
+		$('li.usersig a').each( function (i,ele) {
+			if ( $(ele).text() === sigcookie ) {
+				hassig = true;
+			}
+		});
+
+		if ( !!sigcookie && hassig ) {
+			if ( location.pathname === '/' ) {
+				handleFoundSeedID( { name: sigcookie, skipthankyou: true }, '' );
+			}
+			$("#signitmessage .btn-gianttwitter, .cookiehide").hide();
+		}
 	}
 
 	function shareIt ( yourname ) {

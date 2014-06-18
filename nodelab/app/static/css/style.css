@@ -36,9 +36,10 @@
 .btn-default {
   background-color: #e13230;
   padding: 15px 6px;
-  font-weight: bold;
+  font-weight: normal;
   color: #FFF;
-  font-size: 150%;
+  font-size: 130%;
+  vertical-align: bottom;
   -webkit-transition: background-color 300ms;
   -moz-transition: background-color 300ms;
   -ms-transition: background-color 300ms;
@@ -361,10 +362,12 @@ html,
 body {
 	height: 100%;
 	width: 100%;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  color: #004d72;
 }
 h1, h2, h3, h4, h5, h6, .main-heading {
   font-size: 190%;
+  margin-top: 0;
 }
 a {
   color: #E13231;
@@ -398,7 +401,7 @@ a:hover, a:focus {
 }
 .logo-signit {
   max-width: 340px;
-  height: 300px;
+  height: 280px;
   text-align: left;
   margin: 0 auto;
   text-indent: -9999px;
@@ -410,6 +413,16 @@ a:hover, a:focus {
   bottom: 0;
   left: 0;
 }
+@media (max-width: 512px) {
+  .logo-signit {
+    height: 200px;
+  }
+  .logo-signit img {
+    width: 80%;
+    left: 10%;
+  }
+}
+
 main, .main {
 	position: relative;
 }
@@ -444,11 +457,21 @@ main, .main {
   max-width: 90%;
 }
 .openingcopy {
-  max-width: 620px;
+  max-width: 520px;
   text-align: center;
+  padding-bottom: 20px;
+}
+.firstvisit {
+  max-width: 620px;
 }
 .openingcopy p {
   line-height: 1.8;
+}
+.showthankyou {
+  padding-bottom: 0;
+}
+.showthankyou #thankyou {
+  padding: 30px 0;
 }
 
 #signatures {
@@ -465,6 +488,7 @@ main, .main {
   float: none;
 }
 #signatures li {
+  font-family: 'Cedarville Cursive', Helvetica, Arial, sans-serif;  
   position: relative;
   float: left;
   left: 0%;
@@ -472,8 +496,7 @@ main, .main {
   display: block;
   width: 33%;
   height: 100px;
-  font-size: 150%;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 180%;
   -webkit-transition: left 500ms, top 500ms;
   -moz-transition: left 500ms, top 500ms;
   -ms-transition: left 500ms, top 500ms;
@@ -531,18 +554,24 @@ main, .main {
 .btn-giantfacebook {
     min-width: 250px;
 }
+.no-js .btn-gianttwitter,
+.no-js .btn-giantfacebook {
+    display: none;
+}
 .countbox {
   padding: 0;
   height: 80px;
   background: url('/static/img/lines.png') center center repeat-x;
+  text-align: center;
 }
 .countboxcutout {
   height: 80px;
   background: #FFF;
   margin: 0 auto;
-  width: 180px;
+  min-width: 100px;
   padding: 10px 20px;
   text-align: center;
+  display: inline-block;
 }
 .sigcount {
   color: #0a3759;
@@ -555,7 +584,7 @@ main, .main {
 #signitmessage {
   overflow: hidden;
 }
-#thankyoumessage {
+#thankyou {
   height: 0;
   overflow: hidden;
 }
@@ -563,7 +592,7 @@ main, .main {
 .showthankyou #signitmessage {
   height: 0;
 }
-.showthankyou #thankyoumessage {
+.showthankyou #thankyou {
   height: auto;
 }
 #userimage {
@@ -572,19 +601,30 @@ main, .main {
   overflow: hidden;
 }
 .imgbox {
-  height: 250px;
   text-align: center;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px auto;
+  max-width: 480px;
 }
 .imgbox img {
   border: 1px solid #0a3759;
   display: inline-block;
-  height: 100%;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .imgbox {
+    max-width: 360px;
+  }
 }
 #userimage .btn {
   font-size: 120%;
   background-color: #0a3759;
+  margin-bottom: 15px;
 }
+.rotate1 { -webkit-transform: rotate(2deg); -ms-transform: rotate(2deg); -o-transform: rotate(2deg); transform: rotate(2deg); }
+.rotate2 { -webkit-transform: rotate(-2deg); -ms-transform: rotate(-2deg); -o-transform: rotate(-2deg); transform: rotate(-2deg); }
+.rotate3 { -webkit-transform: rotate(1deg); -ms-transform: rotate(1deg); -o-transform: rotate(1deg); transform: rotate(1deg); }
+.rotate4 { -webkit-transform: rotate(-1deg); -ms-transform: rotate(-1deg); -o-transform: rotate(-1deg); transform: rotate(-1deg); }
+.rotate5 { -webkit-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); }
 
 #overlay {
   position: fixed;
@@ -604,4 +644,11 @@ main, .main {
   background-color: #FFFFFF;
   position: relative;
   box-shadow: 0 0 25px #FFFFFF;
+}
+.footer {
+  border-top: 1px solid #0a3759;
+  padding: 10px 0 40px 0;
+  clear: both;
+  width: 100%;
+  margin-top: 100px;
 }

@@ -11,14 +11,14 @@ function TwitterStreamer () {
 
 	var twitter, twitterWithMedia;
 
-	var targetHandle = 'SignIt2014', //'peteramayer',
+	var targetHandle = config.settings.targetHandle,
 		devmodeonly = false, //Must be false in production
-		targetIncomingHashTag = 'ADevHasht', //'SignIt2014',
-		targetOutgoingHashTag = 'Just2ADev', //'YouSignedIt2014',
-		publicURL = "http://signit2014.com/", // 'http://signit2014.com/',
-		trackerURL = "http://signit2014.com/", // 'http://bit.ly/xxxx',
-		signitMessage = 'Yes, I want to sign the Declaration of Independence, #%%HASHTAG%%, @%%HANDLE%%.',
-		replyMessage = '@%%HANDLE%% just signed the Declaration #%%HASHTAG%%. Share it with the world: %%URL%%';
+		targetIncomingHashTag = config.settings.targetIncomingHashTag, 
+		targetOutgoingHashTag = config.settings.targetOutgoingHashTag,
+		publicURL = config.settings.publicURL, 
+		trackerURL = config.settings.trackerURL,
+		signitMessage = config.settings.signitMessage,
+		replyMessage = config.settings.replyMessage;
 
 	function init () {
 		twitter = new twitter_lib( config.twitter );
@@ -46,7 +46,7 @@ function TwitterStreamer () {
 		if ( !!data.entities && !!data.entities.hashtags && !!data.entities.hashtags.length ) {
     		console.log( "Twitter Data: " + data.user.screen_name + " -- #: ", data.entities.hashtags);
 			if ( ( hasHashTag( targetIncomingHashTag, data.entities.hashtags ) ) ) {
-				if ( devmodeonly || ( !!data.user.screen_name && data.user.screen_name !== targetHandle ) ) {
+				if ( ( !!data.user.screen_name && data.user.screen_name != targetHandle ) ) {
 					takeAction(data);
 				} else {
 					console.log( "Incoming tweet is from this account. Doing nothing." );
@@ -56,7 +56,7 @@ function TwitterStreamer () {
 			}
 		} else if ( !!data.delete ) {
 			console.log( "Twitter Data -- delete request.", data.delete.status );
-			pubsub.publish( topics.TWT_DELETE, { id_str:  data.delete.status.id_str } )
+			pubsub.publish( topics.TWT_DELETE, { id_str: data.delete.status.id_str } )
 		} else {
 			console.log( "Twitter Data -- No applicable data." );
 		}
@@ -85,7 +85,7 @@ function TwitterStreamer () {
 
 		twitterWithMedia.post( { 
 			//status: "@"+data.replyto+" "+messageBank[ (Math.floor(messageBank.length*Math.random())) ]+' #'+targetOutgoingHashTag,
-			status: getTweetMessage( data.replyto, targetIncomingHashTag, publicURL, replyMessage ),
+			status: getTweetMessage( data.replyto, targetIncomingHashTag, trackerURL, replyMessage ),
 			in_reply_to_status_id: data.id
 		}, data.picpath, function (err, resp) {
 			successfullTweetback( err, resp, data )
@@ -112,16 +112,16 @@ function TwitterStreamer () {
 
    	function takeAction ( data ) {
    		console.log('Tweet Correct! Check duplicate.');
-   		//Datastore.getOneSignature( data.user.screen_name, function (onesig) {
-   			//console.log('New signature: ' + !onesig);
-   			//if ( !onesig ) {
+   		Datastore.getOneSignature( data.user.screen_name, function (onesig) {
+   			if ( !onesig || config.settings.allowMultiple ) {
+   				console.log('New signature: ' + !onesig);
 		   		pubsub.publish( topics.TWT_GOTTWEET, { 
 		   			replyto: data.user.screen_name, 
 		   			id: data.id_str, 
 		   			trackid: parseTrackerID( data.entities.hashtags )
 		   		});
-	   		//}
-   		//});
+	   		}
+   		});
    	}
 
    	function getSignItMessage () {
